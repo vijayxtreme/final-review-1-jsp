@@ -1,0 +1,37 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta property="og:title" content="">
+    <meta property="og:type" content="">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="">
+
+
+</head>
+
+<body>
+<form action="#" th:object="${chatForm}" th:action="@{'/chat'}" method="post">
+    <label for="username">Username:</label>
+    <input th:field="*{username}" id="username" type="text">
+    <label for="messageText">Message Text:</label>
+    <input th:field="*{message}" id="messageText" type="text">
+    <label for="messageType">Message Type: </label>
+    <select th:field="*{messageType}" id="messageType">
+        <option selected th:value="Say">Say</option>
+        <option th:value="Shout">Shout</option>
+        <option th:value="Whisper">Whisper</option>
+    </select>
+    <input type="submit">
+</form>
+<p th:each="chat : ${chats}" th:text="${chat.messageText}"></p>
+
+</body>
+
+</html>
+
